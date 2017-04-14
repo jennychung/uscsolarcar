@@ -1,0 +1,228 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+        }
+        
+        /*
+            This just so the thing is horiz / vert centered in the page you probably won't be needing this
+        */
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 60vh;
+            margin-top:0px;
+        }
+        
+        /*
+            This is the light gray container box that holds the cells
+        */
+        .solar-container {
+            display: flex;
+            flex-wrap: wrap;
+            align-content: flex-start;
+            background-color: #ddd;
+            padding: 15px;
+            height: 450px;
+            width: 450px;
+            
+        }
+        
+        /*
+            Use 1rem to be the size of a letter
+        */
+        .cell {
+            height: 1.5rem;
+            width: 1.5rem;
+            margin: 0.4rem;
+            background-color: #eee;
+            border-radius: 3px;
+        }
+        
+        /*
+            extra class on when it has name data
+        */
+        .on {
+            background-color: #D32F2F;
+            transition: background-color: 0.5s;
+            border-radius: 3px;
+        }
+        
+        /*
+            on hover do a hover color
+        */
+        .on:hover {
+            background-color: #FFD54F;
+        }
+        
+        /*
+            inside the on class the donor name is hidden by default unless hovered
+        */
+        .on:hover > .donor-name {
+            display: block;
+        }
+        
+        .donor-name {
+            display: none;
+            position: absolute;
+            padding: 1rem;
+            margin-top: 2rem;
+            background-color: white;
+        }
+        
+        footer{
+            margin: auto;
+            text-align: center;
+        }
+        
+         #logo {
+            background-image: url(logo.png);
+            background-repeat: no-repeat;
+              display: flex;
+            align-items: center;
+            justify-content: center;
+              width: 100px;
+            height: 100px;
+             background-size: contain;
+             float:left;
+             margin-left:30px;
+             margin-top:20px;
+             
+            /* float: left;
+            margin: 10px;
+            margin-bottom: 0px;
+           
+            background-size: 100%;
+            background-color: none;
+            position: absolute; */
+        }
+        
+        #titletext {
+            display: flex;
+            align-items: center;
+            justify-content: left;
+            padding-top:50px;
+            padding-left:30px;
+             color: #D32F2F;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 2em;
+            
+            /* float: right;
+            text-align: left;
+            width: 60%;
+            margin-top: 50px;
+            color: #D32F2F;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 3em;
+            position: absolute;
+            left: 180px; */
+        }
+        
+        #textbox {
+
+            width: 50%;
+            margin: 1em auto;
+            font-family: 'Open Sans', sans-serif;
+            background-color: #F5F5F5;
+            height: 300px;
+            color: #212121;
+            margin-top:0px;
+        }
+        
+        #text {
+            padding: 8%;
+            font-size:10pt;
+        }
+        
+        #adopttitle {
+            font-size: 30px;
+            text-align: center;
+            font-weight: bold;
+        }
+        
+    </style>
+</head>
+
+<body>
+    
+    
+      <div id="logo"> </div>
+    <div id="titletext"> <b> USC Solar Car Team </b> </div>
+
+
+    <br style="clear:both;" />
+
+    
+    
+    <div class="container">
+        <div class="solar-container" id="solar"> </div>
+        <script>
+            // Cache element to a var so you only have to write DOM code once
+            var container = document.getElementById("solar")
+            // Will be replaced later with ability to import from CSV or SQL
+            var names = ["Parth Agarwal", "Parth Agarwal", "Parth Agarwal", "Parth Agarwal", "Parth Agarwal", "Parth Agarwal", "Parth Agarwal", "Parth Agarwal", "Parth Agarwal", "Parth Agarwal", "Parth Agarwal"]
+            // Number of cells you want
+            const MAX_NUM_CELLS = 100
+            // Count to keep track
+            var count = 0
+            // For each iterator on the names array, think for (name : names) from java
+            names.forEach(
+                    // Pass an anonymous function to create this template
+                    // Note the use of single quotes in class names so it works with the double quotes in JavaScript string
+                    /*
+                        <div class='cell on'>
+                            <div class='donor-name'>
+                                Name
+                            </div>
+                        </div>
+                    */
+                    function (name) {
+                        var cell = "<div class='cell on'><div class='donor-name'>" + name + "</div></div>"
+                        // append to the container (see above to where container is defined)
+                        container.innerHTML += cell
+                        // count++ is not used for iteration but to count how many cells we have left
+                        count++
+                    })
+            // Use a normal lfor loop starting from count (where we left off) and finish off with not on cells
+            /*
+                <div class='cell'>
+                    <!-- Nothing goes in here, refer to css .cell -->
+                </div>
+            */
+            for (var i = count; i < MAX_NUM_CELLS; i++) {
+                var cell = "<div class='cell'></div>"
+                container.innerHTML += cell
+            }
+        </script>
+        
+        
+    
+    
+        
+    </div>
+    
+    
+    <div id="textbox">
+        <div id="text">
+
+            <div id="adopttitle"> Adopt-A-Cell Program </div> <br>
+            USC Solar Car is currently working on a solar-powered car to compete in Australia.
+            <br>   <br>We invite you to adopt one of the solar cells that will power our new car. The cost to adopt a cell is $25, but all donations are appreciated.
+            <br> <br> Adopting a cell is a great way to become more involved with the team, and it will be tax deductible.
+        </div>
+    </div>
+</body>
+<footer>
+    
+</footer>
+</html>
