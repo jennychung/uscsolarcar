@@ -1,0 +1,135 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin-bottom: 1rem;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60vh;
+    margin-top: 0px;
+}
+
+.solar-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    background-color: #ddd;
+    padding: 15px;
+    height: 550px;
+    width: 880px;
+}
+
+.cell {
+    height: 1.5rem;
+    width: 1.5rem;
+    margin: 0.4rem;
+    background-color: #eee;
+    border-radius: 3px;
+}
+
+.on {
+    background-color: #D32F2F;
+    transition: background-color: 0.5s;
+    border-radius: 3px;
+}
+
+.on:hover {
+    background-color: #FFD54F;
+}
+
+.on:hover > .donor-name {
+    display: block;
+}
+
+.donor-name {
+    display: none;
+    position: absolute;
+    padding: 1rem;
+    margin-top: 2rem;
+    background-color: white;
+}
+
+.blank {
+    background-color: #ddd;
+}
+
+footer {
+    margin: auto;
+    text-align: center;
+}
+
+#logo {
+    background-image: url(../img/logo.png);
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 100px;
+    background-size: contain;
+    float: left;
+    margin-left: 30px;
+    margin-top: 20px;
+    /* float: left;
+            margin: 10px;
+            margin-bottom: 0px;
+           
+            background-size: 100%;
+            background-color: none;
+            position: absolute; */
+}
+
+#titletext {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    padding-top: 50px;
+    padding-left: 30px;
+    color: #D32F2F;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 2em;
+    /* float: right;
+            text-align: left;
+            width: 60%;
+            margin-top: 50px;
+            color: #D32F2F;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 3em;
+            position: absolute;
+            left: 180px; */
+}
+
+#textbox {
+    width: 50%;
+    margin: 1em auto;
+    font-family: 'Open Sans', sans-serif;
+    background-color: #F5F5F5;
+    height: 300px;
+    color: #212121;
+    margin-top: 0px;
+}
+
+#text {
+    padding: 8%;
+    font-size: 10pt;
+}
+
+#adopttitle {
+    font-size: 30px;
+    text-align: center;
+    font-weight: bold;
+}
